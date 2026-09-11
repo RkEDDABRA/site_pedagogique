@@ -14,6 +14,8 @@ export const COURSES = {
   "dn-s1": { password: "APH2026", label: "Anatomie et Physiologie Humaine — Diététique (Semestre 1)" },
   "dn-s2": { password: "BPN2026", label: "Bases Physiologiques de la Nutrition — Diététique (Semestre 2)" },
   "master-pau": { password: "MPAU2026", label: "Master PAU — Pratiques Avancées en Urgentologie" },
+  "lab-s1-bc": { password: "BC2026", label: "Biologie cellulaire — Laboratoire (Semestre 1)" },
+  "lab-s1-immuno": { password: "IMM2026", label: "Immunologie — Laboratoire (Semestre 1)" },
 
 } as const;
 

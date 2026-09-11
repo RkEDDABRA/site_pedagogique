@@ -29,6 +29,7 @@ const Index = lazyWithRetry(() => import("./pages/Index.tsx"));
 const AccueilPage = lazyWithRetry(() => import("./pages/AccueilPage.tsx"));
 const LicencePage = lazyWithRetry(() => import("./pages/LicencePage.tsx"));
 const MasterPage = lazyWithRetry(() => import("./pages/MasterPage.tsx"));
+const LaboratoirePage = lazyWithRetry(() => import("./pages/LaboratoirePage.tsx"));
 const CvPage = lazyWithRetry(() => import("./pages/CvPage.tsx"));
 const NotFound = lazyWithRetry(() => import("./pages/NotFound.tsx"));
 const CoursModesActionMicroorganismes = lazyWithRetry(
@@ -65,6 +66,7 @@ const App = () => (
               <Route path="/licence/sage-femme" element={<LicencePage />} />
               <Route path="/licence/dietetique" element={<LicencePage />} />
               <Route path="/master" element={<MasterPage />} />
+              <Route path="/laboratoire" element={<LaboratoirePage />} />
               <Route
                 path="/licence/sage-femme/s1/microbio/modes-action"
                 element={<CoursModesActionMicroorganismes />}

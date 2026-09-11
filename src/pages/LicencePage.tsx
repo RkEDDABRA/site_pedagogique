@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CourseGate from "@/components/CourseGate";
 import PresentationChapters from "@/components/PresentationChapters";
 import { PRESENTATIONS_SF_S1 } from "@/data/presentationsSfS1";
@@ -185,6 +186,7 @@ const TABS = [
 ];
 
 export default function LicencePage() {
+  const navigate = useNavigate();
   const [activeOpt, setActiveOpt] = useState("sf");
   const [activeSem, setActiveSem] = useState("s1");
   const [activeTab, setActiveTab] = useState("cours");
@@ -227,6 +229,11 @@ export default function LicencePage() {
                 transition: "all 0.2s",
               }}>{opt.label}</button>
             ))}
+            <button onClick={() => navigate("/laboratoire")} style={{
+              padding: "7px 16px", borderRadius: 999, fontSize: 13, fontWeight: 700, cursor: "pointer",
+              border: "2px solid #1d4ed8", background: "transparent", color: "#1d4ed8",
+              transition: "all 0.2s",
+            }}>Laboratoire</button>
           </div>
         </div>
       </header>
