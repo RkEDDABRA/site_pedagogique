@@ -206,6 +206,24 @@ export default function AccueilPage() {
                 </a>
               </div>
             </div>
+            <div className="bg-gold/5 border border-gold/20 rounded-xl p-4 flex items-center gap-3 mt-3">
+              <div className="w-11 h-13 bg-destructive rounded-lg flex flex-col items-center justify-center flex-shrink-0 p-2">
+                <span className="text-[10px] font-bold text-destructive-foreground">PDF</span>
+                <i className="fa-solid fa-file-pdf text-destructive-foreground" aria-hidden="true" />
+              </div>
+              <div className="flex-1">
+                <p className="font-semibold text-sm mb-1">CNPN 2025 Licence &amp; Master</p>
+                <p className="text-xs text-muted-foreground mb-2">Cahier des Normes Pédagogiques Nationales 2025 (Bulletin Officiel)</p>
+                <a
+                  href="/documents/CNPN_2025_Licence_Master.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 bg-gold text-gold-foreground text-xs font-bold px-3 py-1 rounded-full hover:opacity-90 transition-opacity"
+                >
+                  <i className="fa-solid fa-download" aria-hidden="true" /> Télécharger le PDF
+                </a>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
 
