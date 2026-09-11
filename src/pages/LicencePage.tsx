@@ -186,6 +186,7 @@ const TABS = [
 ];
 
 export default function LicencePage() {
+  const navigate = useNavigate();
   const [activeOpt, setActiveOpt] = useState("sf");
   const [activeSem, setActiveSem] = useState("s1");
   const [activeTab, setActiveTab] = useState("cours");
