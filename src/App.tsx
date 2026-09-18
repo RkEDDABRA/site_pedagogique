@@ -41,7 +41,10 @@ const CoursParasites = lazyWithRetry(() => import("./pages/cours/CoursParasites.
 const CoursMycetes = lazyWithRetry(() => import("./pages/cours/CoursMycetes.tsx"));
 const CoursHematologie = lazyWithRetry(() => import("./pages/cours/CoursHematologie.tsx"));
 const CoursImmunologie = lazyWithRetry(() => import("./pages/cours/CoursImmunologie.tsx"));
+const CoursImmunologieLabo = lazyWithRetry(() => import("./pages/cours/CoursImmunologieLabo.tsx"));
 const CoursGenetique = lazyWithRetry(() => import("./pages/cours/CoursGenetique.tsx"));
+import CourseGate from "@/components/CourseGate";
+import { COLOR as LAB_COLOR } from "@/pages/LaboratoirePage";
 
 const queryClient = new QueryClient();
 
@@ -67,6 +70,14 @@ const App = () => (
               <Route path="/licence/dietetique" element={<LicencePage />} />
               <Route path="/master" element={<MasterPage />} />
               <Route path="/laboratoire" element={<LaboratoirePage />} />
+              <Route
+                path="/laboratoire/immunologie"
+                element={
+                  <CourseGate courseId="lab-s1-immuno" accent={LAB_COLOR}>
+                    <CoursImmunologieLabo />
+                  </CourseGate>
+                }
+              />
               <Route
                 path="/licence/sage-femme/s1/microbio/modes-action"
                 element={<CoursModesActionMicroorganismes />}
