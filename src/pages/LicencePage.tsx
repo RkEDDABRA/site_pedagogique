@@ -143,6 +143,11 @@ const CONFIG = {
   ],
 };
 
+/* Données SF S1 réutilisées telles quelles par l'Option Laboratoire */
+export const SF_S1_EXERCICES = CONFIG.options[0].semestres[0].exercices;
+export const SF_S1_CORRECTIONS = CONFIG.options[0].semestres[0].corrections;
+
+
 /* ================================================================
    ICÔNES SVG INLINE
    ================================================================ */
@@ -453,7 +458,7 @@ function Notice({ color, light, children }: { color: string; light: string; chil
   );
 }
 
-function FilePasswordBanner({ color, light, password }: { color: string; light: string; password: string }) {
+export function FilePasswordBanner({ color, light, password }: { color: string; light: string; password: string }) {
   return (
     <div style={{ background: light, border: `1px solid ${color}35`, borderRadius: 12, padding: "12px 16px", display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap", marginBottom: "1.25rem" }}>
       <Ico name="lock" size={16} color={color} />
