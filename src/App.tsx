@@ -44,7 +44,6 @@ const CoursImmunologie = lazyWithRetry(() => import("./pages/cours/CoursImmunolo
 const CoursImmunologieLabo = lazyWithRetry(() => import("./pages/cours/CoursImmunologieLabo.tsx"));
 const CoursGenetique = lazyWithRetry(() => import("./pages/cours/CoursGenetique.tsx"));
 import CourseGate from "@/components/CourseGate";
-import { COLOR as LAB_COLOR } from "@/pages/LaboratoirePage";
 
 const queryClient = new QueryClient();
 
@@ -73,7 +72,7 @@ const App = () => (
               <Route
                 path="/laboratoire/immunologie"
                 element={
-                  <CourseGate courseId="lab-s1-immuno" accent={LAB_COLOR}>
+                  <CourseGate courseId="lab-s1-immuno" accent="#1d4ed8">
                     <CoursImmunologieLabo />
                   </CourseGate>
                 }
