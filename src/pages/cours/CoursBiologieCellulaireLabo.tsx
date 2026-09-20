@@ -88,7 +88,7 @@ export default function CoursBiologieCellulaireLabo() {
   const courseHtml = useMemo(() => {
     let value = RAW_HTML;
     Object.entries(ASSETS).forEach(([name, url]) => {
-      value = value.replaceAll(`__ASSET_${name}__`, url);
+      value = value.split(`__ASSET_${name}__`).join(url);
     });
     return value;
   }, []);
