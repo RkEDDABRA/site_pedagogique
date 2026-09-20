@@ -42,6 +42,9 @@ const CoursMycetes = lazyWithRetry(() => import("./pages/cours/CoursMycetes.tsx"
 const CoursHematologie = lazyWithRetry(() => import("./pages/cours/CoursHematologie.tsx"));
 const CoursImmunologie = lazyWithRetry(() => import("./pages/cours/CoursImmunologie.tsx"));
 const CoursImmunologieLabo = lazyWithRetry(() => import("./pages/cours/CoursImmunologieLabo.tsx"));
+const CoursBiologieCellulaireLabo = lazyWithRetry(
+  () => import("./pages/cours/CoursBiologieCellulaireLabo.tsx"),
+);
 const CoursGenetique = lazyWithRetry(() => import("./pages/cours/CoursGenetique.tsx"));
 import CourseGate from "@/components/CourseGate";
 
@@ -69,6 +72,14 @@ const App = () => (
               <Route path="/licence/dietetique" element={<LicencePage />} />
               <Route path="/master" element={<MasterPage />} />
               <Route path="/laboratoire" element={<LaboratoirePage />} />
+              <Route
+                path="/laboratoire/biologie-cellulaire"
+                element={
+                  <CourseGate courseId="lab-s1-bc" accent="#1d4ed8">
+                    <CoursBiologieCellulaireLabo />
+                  </CourseGate>
+                }
+              />
               <Route
                 path="/laboratoire/immunologie"
                 element={
