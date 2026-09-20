@@ -27,6 +27,9 @@ const OPTION = {
           titre: "Biologie cellulaire",
           soustitre: "Semestre 1 · Option Laboratoire",
           courseId: "lab-s1-bc" as CourseId,
+          courseRoute: "/laboratoire/biologie-cellulaire",
+          description:
+            "Structure cellulaire, membrane plasmique, cytoplasme et organites.",
         },
         {
           id: "immuno",
@@ -181,7 +184,7 @@ function CourseBlock({ cours }: { cours: { id: string; titre: string; soustitre:
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e5e7eb", overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.06)" }}>
         <CourseGate courseId={cours.courseId} accent={COLOR}>
 
-          {!isImmuno && (
+          {!isImmuno && activeTab !== "cours" && (
             <div style={{ padding: "3rem 2rem", textAlign: "center" }}>
               <div style={{ width: 56, height: 56, borderRadius: "50%", background: LIGHT, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1rem" }}>
                 <Ico name="lock" size={24} color={COLOR} />
@@ -191,14 +194,14 @@ function CourseBlock({ cours }: { cours: { id: string; titre: string; soustitre:
             </div>
           )}
 
-          {isImmuno && activeTab === "cours" && (
+          {activeTab === "cours" && (
             <div style={{ padding: "2.5rem 2rem", textAlign: "center" }}>
               <div style={{ width: 56, height: 56, borderRadius: "50%", background: LIGHT, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1rem" }}>
                 <Ico name="book" size={24} color={COLOR} />
               </div>
-              <div style={{ fontWeight: 800, fontSize: 19, color: "#111827", marginBottom: 8 }}>Immunologie — Cours complet</div>
+              <div style={{ fontWeight: 800, fontSize: 19, color: "#111827", marginBottom: 8 }}>{cours.titre} — Cours complet</div>
               <p style={{ fontSize: 14, color: "#6b7280", maxWidth: 560, margin: "0 auto 1.5rem", lineHeight: 1.7 }}>{cours.description}</p>
-              <Link to={cours.courseRoute ?? "/laboratoire/immunologie"} style={{
+              <Link to={cours.courseRoute ?? "/laboratoire"} style={{
                 display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 26px",
                 borderRadius: 12, fontSize: 14, fontWeight: 700, background: COLOR, color: "#fff",
                 textDecoration: "none", transition: "opacity 0.2s",
