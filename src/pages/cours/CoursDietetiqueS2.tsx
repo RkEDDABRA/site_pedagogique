@@ -128,6 +128,7 @@ import ch2GlycReg from "@/assets/cours-diet-s2/ch2/glycemie-reg.jpg";
 import ch2MetabProt from "@/assets/cours-diet-s2/ch2/metab-prot.jpg";
 import ch2MetabLip from "@/assets/cours-diet-s2/ch2/metab-lip.jpg";
 import ch2MetabGluc from "@/assets/cours-diet-s2/ch2/metab-gluc.jpg";
+import { dimsFor } from "@/lib/imageDims";
 
 const PASSWORD = "BPN2026";
 const STORAGE_KEY = "course_unlocked_dn-s2";
@@ -181,7 +182,7 @@ function Figure({ src, n, legend, alt }: { src: string; n: string; legend: strin
   return (
     <figure className="my-6 rounded-xl border border-border bg-muted/30 p-3">
       <img
-        src={src}
+        src={src} {...dimsFor(src)}
         alt={alt ?? legend}
         loading="lazy"
         className="mx-auto max-h-[600px] w-auto cursor-zoom-in rounded-md"
@@ -195,7 +196,7 @@ function Figure({ src, n, legend, alt }: { src: string; n: string; legend: strin
           onClick={() => setZoom(false)}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-zoom-out"
         >
-          <img src={src} alt={alt ?? legend} className="max-h-full max-w-full rounded-lg" />
+          <img src={src} {...dimsFor(src)} alt={alt ?? legend} className="max-h-full max-w-full rounded-lg" />
         </div>
       )}
     </figure>
@@ -2806,8 +2807,8 @@ function Section2_2() {
         L'hypothalamus est relié par la tige pituitaire à l'hypophyse, l'ensemble constituant l'axe hypothalamo-hypophysaire. Il est situé à la base de l'encéphale délimité en avant par le chiasma optique et par les tubercules mamillaires en arrière (Figure 42).
       </p>
       <div className="grid sm:grid-cols-2 gap-4 my-4">
-        <img src={ch2Img5} alt="Hypothalamus - vue 1" className="w-full rounded-lg border border-border" />
-        <img src={ch2Img6} alt="Hypothalamus - vue 2" className="w-full rounded-lg border border-border" />
+        <img src={ch2Img5} {...dimsFor(ch2Img5)} alt="Hypothalamus - vue 1" className="w-full rounded-lg border border-border" />
+        <img src={ch2Img6} {...dimsFor(ch2Img6)} alt="Hypothalamus - vue 2" className="w-full rounded-lg border border-border" />
       </div>
       <Figure src={ch2Img7} n="Figure 42" legend="Localisation de l'hypothalamus et de l'axe neuro-endocrinien" />
       <p className="mb-3 text-foreground/90">
@@ -2892,19 +2893,19 @@ function Section2_3() {
       </p>
       <div className="grid sm:grid-cols-2 gap-4 my-4">
         <figure className="rounded-lg border border-border bg-muted/30 p-3">
-          <img src={ch2Img14} alt="Vue antérieure de la thyroïde" className="w-full rounded-md" />
+          <img src={ch2Img14} {...dimsFor(ch2Img14)} alt="Vue antérieure de la thyroïde" className="w-full rounded-md" />
           <figcaption className="mt-2 text-center text-xs text-muted-foreground">Vue antérieure</figcaption>
         </figure>
         <figure className="rounded-lg border border-border bg-muted/30 p-3">
-          <img src={ch2Img15} alt="Vue postérieure de la thyroïde" className="w-full rounded-md" />
+          <img src={ch2Img15} {...dimsFor(ch2Img15)} alt="Vue postérieure de la thyroïde" className="w-full rounded-md" />
           <figcaption className="mt-2 text-center text-xs text-muted-foreground">Vue postérieure</figcaption>
         </figure>
         <figure className="rounded-lg border border-border bg-muted/30 p-3">
-          <img src={ch2Img16} alt="Follicules thyroïdiens" className="w-full rounded-md" />
+          <img src={ch2Img16} {...dimsFor(ch2Img16)} alt="Follicules thyroïdiens" className="w-full rounded-md" />
           <figcaption className="mt-2 text-center text-xs text-muted-foreground">a : Follicules thyroïdiens</figcaption>
         </figure>
         <figure className="rounded-lg border border-border bg-muted/30 p-3">
-          <img src={ch2Img17} alt="Histologie de la thyroïde" className="w-full rounded-md" />
+          <img src={ch2Img17} {...dimsFor(ch2Img17)} alt="Histologie de la thyroïde" className="w-full rounded-md" />
           <figcaption className="mt-2 text-center text-xs text-muted-foreground">b : Histologie de la thyroïde</figcaption>
         </figure>
       </div>
@@ -3041,8 +3042,8 @@ function Section2_5() {
         </li>
       </ul>
       <div className="grid sm:grid-cols-2 gap-4 my-4">
-        <img src={ch2SurrRein} alt="Surrénale et rein" className="w-full rounded-lg border border-border bg-muted/30 p-2" />
-        <img src={ch2SurrZones} alt="Zones de la glande surrénale" className="w-full rounded-lg border border-border bg-muted/30 p-2" />
+        <img src={ch2SurrRein} {...dimsFor(ch2SurrRein)} alt="Surrénale et rein" className="w-full rounded-lg border border-border bg-muted/30 p-2" />
+        <img src={ch2SurrZones} {...dimsFor(ch2SurrZones)} alt="Zones de la glande surrénale" className="w-full rounded-lg border border-border bg-muted/30 p-2" />
       </div>
       <p className="text-center text-sm text-muted-foreground -mt-2 mb-6"><span className="font-semibold text-foreground">Figure 56.</span> Glandes surrénaliennes et hormones sécrétées.</p>
       <H3 id="sec-2-5-2">5.2. La médullosurrénale</H3>
@@ -3125,9 +3126,9 @@ function Section2_6() {
       <p className="mb-3 text-foreground/90">Une <Mark>hypoglycémie</Mark> est détectée par les <strong>cellules α</strong> qui libèrent du <strong>glucagon</strong>. Celui-ci stimule la lipolyse et surtout, dans le foie, la <strong>néoglucogenèse</strong>. La glycémie remonte : le glucagon est <strong>hyperglycémiant</strong>.</p>
       <Figure src={ch2GlycRep} n="Figure 63" legend="Réponses aux variations de la glycémie : insuline et glucagon." />
       <div className="grid sm:grid-cols-3 gap-4 my-4">
-        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabProt} alt="Protéines" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des protéines</figcaption></figure>
-        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabLip} alt="Lipides" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des lipides</figcaption></figure>
-        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabGluc} alt="Glucides" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des glucides</figcaption></figure>
+        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabProt} {...dimsFor(ch2MetabProt)} alt="Protéines" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des protéines</figcaption></figure>
+        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabLip} {...dimsFor(ch2MetabLip)} alt="Lipides" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des lipides</figcaption></figure>
+        <figure className="rounded-lg border border-border bg-muted/30 p-3"><img src={ch2MetabGluc} {...dimsFor(ch2MetabGluc)} alt="Glucides" className="w-full rounded-md" /><figcaption className="mt-2 text-center text-xs text-muted-foreground">Métabolisme des glucides</figcaption></figure>
       </div>
       <p className="text-center text-sm text-muted-foreground -mt-2 mb-6"><span className="font-semibold text-foreground">Figure 64.</span> Anabolisme et catabolisme des protéines, lipides et glucides.</p>
       <H4 id="sec-2-6-3-2">6.3.2. En cas d'hyperglycémie</H4>

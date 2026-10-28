@@ -36,6 +36,7 @@ import fig33 from "@/assets/cours-anatomie/figures/fig-33-p23.jpg";
 import fig36 from "@/assets/cours-anatomie/figures/fig-36-p25.jpg";
 import fig44 from "@/assets/cours-anatomie/figures/fig-44-p27.jpg";
 import fig47 from "@/assets/cours-anatomie/figures/fig-47-p29.jpg";
+import { dimsFor } from "@/lib/imageDims";
 
 const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
   1: { src: fig04, extras: [fig01, fig02, fig03] },
@@ -193,7 +194,7 @@ function Figure({ n, legend }: { n: number | string; legend: string }) {
               className="group relative bg-card rounded-lg overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all"
             >
               <img
-                src={src}
+                src={src} {...dimsFor(src)}
                 alt={`${legend} (${i + 1}/${images.length})`}
                 loading="lazy"
                 className="w-full h-auto object-contain bg-card"
