@@ -179,21 +179,12 @@ function H4({ id, children }: { id: string; children: React.ReactNode }) {
 }
 
 function Figure({ src, n, legend, alt }: { src: string; n: string; legend: string; alt?: string }) {
-  const [zoom, setZoom] = useState(false);
   return (
     <figure className="my-6 rounded-xl border border-border bg-muted/30 p-3">
       <ZoomableImage src={src} alt={alt ?? legend} className="mx-auto max-h-[600px] w-auto cursor-zoom-in rounded-md"/>
       <figcaption className="mt-3 text-center text-sm text-muted-foreground">
         <span className="font-semibold text-foreground">{n}.</span> {legend}
       </figcaption>
-      {zoom && (
-        <div
-          onClick={() => setZoom(false)}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-zoom-out"
-        >
-          <img src={src} {...dimsFor(src)} alt={alt ?? legend} className="max-h-full max-w-full rounded-lg" />
-        </div>
-      )}
     </figure>
   );
 }
