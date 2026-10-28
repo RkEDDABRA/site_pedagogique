@@ -10,6 +10,7 @@ import fig5 from "@/assets/cours-sf-s1/modes-action/fig5-petri-exotoxines.jpg";
 import fig6 from "@/assets/cours-sf-s1/modes-action/fig6-gram-negatif-endotoxine.jpg";
 import fig7 from "@/assets/cours-sf-s1/modes-action/fig7-synthese-toxines.png";
 import { dimsFor } from "@/lib/imageDims";
+import { ZoomableImage } from "@/components/ZoomableImage";
 
 /* ---------- TOC ---------- */
 type TocEntry = { id: string; num: string; label: string; level: 1 | 2 };
@@ -107,7 +108,7 @@ function Figure({ n, src, caption }: { n: number; src: string; caption: string }
   return (
     <figure className="my-6">
       <div className="rounded-lg border border-border bg-muted/30 overflow-hidden">
-        <img src={src} {...dimsFor(src)} alt={caption} className="w-full h-auto block" loading="lazy" />
+        <ZoomableImage src={src} alt={caption} className="w-full h-auto block"/>
       </div>
       <figcaption className="text-sm text-muted-foreground mt-2 text-center">
         <span className="font-semibold text-foreground/80">Figure {n}.</span> {caption}

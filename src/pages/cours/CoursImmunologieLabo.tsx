@@ -20,6 +20,7 @@ import fig14 from "@/assets/cours-sf-s1/immunite/fig14-etapes-rimc.jpg";
 import fig15 from "@/assets/cours-sf-s1/immunite/fig15-resume-rih-rimc.jpg";
 import fig16 from "@/assets/cours-sf-s1/immunite/fig16-defense-organisme.jpg";
 import { dimsFor } from "@/lib/imageDims";
+import { ZoomableImage } from "@/components/ZoomableImage";
 
 const slug = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -101,7 +102,7 @@ const UL = ({ children }: { children: React.ReactNode }) => (
 function Figure({ src, n, caption }: { src: string; n: number; caption: string }) {
   return (
     <figure className="my-6">
-      <img src={src} {...dimsFor(src)} alt={caption} className="w-full rounded-lg border border-border bg-white" loading="lazy" />
+      <ZoomableImage src={src} alt={caption} className="w-full rounded-lg border border-border bg-white"/>
       <figcaption className="mt-2 text-sm italic text-muted-foreground text-center">
         <span className="font-semibold not-italic text-foreground">Fig.{n}</span> — {caption}
       </figcaption>

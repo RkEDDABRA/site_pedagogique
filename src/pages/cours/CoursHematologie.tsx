@@ -14,6 +14,7 @@ import fig8 from "@/assets/cours-sf-s1/hematologie/fig8-agglutination.jpg";
 import fig9 from "@/assets/cours-sf-s1/hematologie/fig9-maladie-hemolytique.png";
 import fig10 from "@/assets/cours-sf-s1/hematologie/fig10-incompatibilite-rhesus.jpg";
 import { dimsFor } from "@/lib/imageDims";
+import { ZoomableImage } from "@/components/ZoomableImage";
 
 const slug = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -87,7 +88,7 @@ function H3({ id, children }: { id: string; children: React.ReactNode }) {
 function Figure({ src, n, caption }: { src: string; n: number; caption: string }) {
   return (
     <figure className="my-6">
-      <img src={src} {...dimsFor(src)} alt={caption} className="w-full rounded-lg border border-border bg-white" loading="lazy" />
+      <ZoomableImage src={src} alt={caption} className="w-full rounded-lg border border-border bg-white"/>
       <figcaption className="mt-2 text-sm italic text-muted-foreground text-center">
         <span className="font-semibold not-italic text-foreground">Fig.{n}</span> — {caption}
       </figcaption>

@@ -129,6 +129,7 @@ import ch2MetabProt from "@/assets/cours-diet-s2/ch2/metab-prot.jpg";
 import ch2MetabLip from "@/assets/cours-diet-s2/ch2/metab-lip.jpg";
 import ch2MetabGluc from "@/assets/cours-diet-s2/ch2/metab-gluc.jpg";
 import { dimsFor } from "@/lib/imageDims";
+import { ZoomableImage } from "@/components/ZoomableImage";
 
 const PASSWORD = "BPN2026";
 const STORAGE_KEY = "course_unlocked_dn-s2";
@@ -181,13 +182,7 @@ function Figure({ src, n, legend, alt }: { src: string; n: string; legend: strin
   const [zoom, setZoom] = useState(false);
   return (
     <figure className="my-6 rounded-xl border border-border bg-muted/30 p-3">
-      <img
-        src={src} {...dimsFor(src)}
-        alt={alt ?? legend}
-        loading="lazy"
-        className="mx-auto max-h-[600px] w-auto cursor-zoom-in rounded-md"
-        onClick={() => setZoom(true)}
-      />
+      <ZoomableImage src={src} alt={alt ?? legend} className="mx-auto max-h-[600px] w-auto cursor-zoom-in rounded-md"/>
       <figcaption className="mt-3 text-center text-sm text-muted-foreground">
         <span className="font-semibold text-foreground">{n}.</span> {legend}
       </figcaption>
