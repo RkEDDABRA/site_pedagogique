@@ -55,6 +55,15 @@ function Definition({ title, children }: { title: string; children: ReactNode })
 
 function Figure({ n, legend, images }: { n: number; legend: string; images: string[] }) {
   const [zoomed, setZoomed] = useState<string | null>(null);
+  useEffect(() => {
+    if (!zoomed) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setZoomed(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomed]);
+
   return (
     <>
       <figure className="my-8">

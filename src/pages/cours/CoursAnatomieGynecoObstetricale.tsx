@@ -167,6 +167,15 @@ function Callout({
 
 function Figure({ n, legend }: { n: number | string; legend: string }) {
   const [zoomed, setZoomed] = useState<string | null>(null);
+  useEffect(() => {
+    if (!zoomed) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setZoomed(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomed]);
+
   const mapping = typeof n === "number" ? FIGURE_MAP[n] : undefined;
   const images = mapping ? [mapping.src, ...(mapping.extras ?? [])] : [];
 
