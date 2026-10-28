@@ -8,6 +8,7 @@ import qrActivites from "@/assets/qr-activites-master.png";
 import LordIcon, { LORD_ICONS } from "@/components/LordIcon";
 import calendrier2024 from "@/assets/calendrier-vacances-2024-2025.png";
 import calendrier2026 from "@/assets/calendrier-vacances-2025-2026.png";
+import { dimsFor } from "@/lib/imageDims";
 
 const tabs = [
   { id: "cours", label: "Cours", fa: "fa-solid fa-book-open", lordicon: LORD_ICONS.book, color: "gold" },
@@ -338,7 +339,7 @@ export default function MasterPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-start gap-6">
               <div className="bg-secondary rounded-xl p-3">
-                <img src={qrActivites} alt="QR code Activités réalisées" width={150} height={150} loading="lazy" className="w-[150px] h-[150px]" />
+                <img src={qrActivites} {...dimsFor(qrActivites)} alt="QR code Activités réalisées" width={150} height={150} loading="lazy" className="w-[150px] h-[150px]" />
               </div>
               <div className="flex-1">
                 <a
@@ -424,7 +425,7 @@ export default function MasterPage() {
                 <i className="fa-solid fa-umbrella-beach text-emerald-500" /> Calendrier des Vacances Universitaires 2024/2025
               </h3>
               <img
-                src={calendrier2024}
+                src={calendrier2024} {...dimsFor(calendrier2024)}
                 alt="Calendrier des vacances universitaires 2024-2025"
                 className="w-full max-w-2xl mx-auto rounded-xl border border-border shadow-sm"
               />
@@ -436,7 +437,7 @@ export default function MasterPage() {
                 <i className="fa-solid fa-umbrella-beach text-blue-500" /> Calendrier des Vacances Universitaires 2025/2026
               </h3>
               <img
-                src={calendrier2026}
+                src={calendrier2026} {...dimsFor(calendrier2026)}
                 alt="Calendrier des vacances universitaires 2025-2026"
                 className="w-full max-w-2xl mx-auto rounded-xl border border-border shadow-sm"
               />

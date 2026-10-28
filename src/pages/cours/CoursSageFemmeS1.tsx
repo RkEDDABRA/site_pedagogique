@@ -24,6 +24,7 @@ import figSpore from "@/assets/cours-sf-s1/microbio/figure13_structure_spore.jpe
 import figCycleSporal from "@/assets/cours-sf-s1/microbio/figure14_cycle_sporal.png";
 import figFormesSpore from "@/assets/cours-sf-s1/microbio/figure15_forme_position_deformation_spore.png";
 import figCourbeCroissance from "@/assets/cours-sf-s1/microbio/figure18_courbe_croissance_bacterienne.png";
+import { dimsFor } from "@/lib/imageDims";
 
 const FIGURE_MAP: Record<number, { src: string; extras?: string[] }> = {
   1: { src: fig01 },
@@ -145,6 +146,15 @@ function Figure({
   maxWidth?: number;
 }) {
   const [zoomed, setZoomed] = useState<string | null>(null);
+  useEffect(() => {
+    if (!zoomed) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setZoomed(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomed]);
+
   const mapping = FIGURE_MAP[n];
   const images = imagesProp ?? (mapping ? [mapping.src, ...(mapping.extras ?? [])] : []);
   const caption = label ?? `Figure ${n}`;
@@ -167,7 +177,7 @@ function Figure({
         <div className={cn("grid gap-3", images.length === 1 || stacked ? "grid-cols-1" : "sm:grid-cols-2")}>
           {images.map((src, i) => (
             <button key={i} type="button" onClick={() => setZoomed(src)} className="group relative bg-card rounded-lg overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all">
-              <img src={src} alt={`${legend} (${i + 1}/${images.length})`} loading="lazy" className="w-full h-auto object-contain bg-card" />
+              <img src={src} {...dimsFor(src)} alt={`${legend} (${i + 1}/${images.length})`} loading="lazy" className="w-full h-auto object-contain bg-card" />
               <span className="absolute top-2 right-2 bg-foreground/70 text-background rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity"><ZoomIn size={14} /></span>
             </button>
           ))}

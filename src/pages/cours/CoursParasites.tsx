@@ -8,6 +8,8 @@ import fig2 from "@/assets/cours-sf-s1/parasites/fig2-cycle-direct.jpg";
 import fig3 from "@/assets/cours-sf-s1/parasites/fig3-cycle-trichuris.jpg";
 import fig4 from "@/assets/cours-sf-s1/parasites/fig4-cycle-indirect.jpg";
 import fig5 from "@/assets/cours-sf-s1/parasites/fig5-cycle-schistosomose.jpg";
+import { dimsFor } from "@/lib/imageDims";
+import { ZoomableImage } from "@/components/ZoomableImage";
 
 const slug = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -76,7 +78,7 @@ function H3({ id, children }: { id: string; children: React.ReactNode }) {
 function Figure({ src, n, caption }: { src: string; n: number; caption: string }) {
   return (
     <figure className="my-6">
-      <img src={src} alt={caption} className="w-full rounded-lg border border-border bg-white" loading="lazy" />
+      <ZoomableImage src={src} alt={caption} className="w-full rounded-lg border border-border bg-white"/>
       <figcaption className="mt-2 text-sm italic text-muted-foreground text-center">
         <span className="font-semibold not-italic text-foreground">Fig.{n}</span> — {caption}
       </figcaption>

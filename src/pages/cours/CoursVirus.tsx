@@ -17,6 +17,7 @@ import fig08 from "@/assets/cours-sf-s1/virus/fig08-cycle-lytique.jpg";
 import fig09 from "@/assets/cours-sf-s1/virus/fig09-virus-arn-enveloppe.jpg";
 import fig10 from "@/assets/cours-sf-s1/virus/fig10-sras-cov.jpg";
 import figBaltimore from "@/assets/cours-sf-s1/virus/classification-baltimore.png";
+import { dimsFor } from "@/lib/imageDims";
 
 const slug = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -54,13 +55,22 @@ function Definition({ title, children }: { title: string; children: ReactNode })
 
 function Figure({ n, legend, images }: { n: number; legend: string; images: string[] }) {
   const [zoomed, setZoomed] = useState<string | null>(null);
+  useEffect(() => {
+    if (!zoomed) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setZoomed(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomed]);
+
   return (
     <>
       <figure className="my-8">
         <div className={cn("grid gap-3", images.length === 1 ? "grid-cols-1" : images.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-4")}>
           {images.map((src, i) => (
             <button key={i} type="button" onClick={() => setZoomed(src)} className="group relative bg-card rounded-lg overflow-hidden border border-border shadow-card hover:shadow-card-hover transition-all">
-              <img src={src} alt={`${legend} (${i + 1}/${images.length})`} loading="lazy" className="w-full h-auto object-contain bg-card" />
+              <img src={src} {...dimsFor(src)} alt={`${legend} (${i + 1}/${images.length})`} loading="lazy" className="w-full h-auto object-contain bg-card" />
               <span className="absolute top-2 right-2 bg-foreground/70 text-background rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
                 <ZoomIn size={14} />
               </span>
@@ -316,7 +326,7 @@ export default function CoursVirus() {
           </P>
           <figure className="my-6">
             <img
-              src={figBaltimore}
+              src={figBaltimore} {...dimsFor(figBaltimore)}
               alt="Classification de Baltimore : groupes I à VII des virus selon la nature de leur génome"
               className="w-full max-w-2xl mx-auto rounded-lg border border-border bg-white"
               loading="lazy"
