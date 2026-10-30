@@ -216,29 +216,29 @@ export default function LicencePage() {
     <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", minHeight: "100vh", background: "#f4f5f7" }}>
 
       <header style={{ background: "#fff", borderBottom: "1px solid #e5e7eb", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 1px 6px rgba(0,0,0,0.06)" }}>
-        <div style={{ maxWidth: 1080, margin: "0 auto", padding: "0 1.5rem", height: 62, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{ width: 38, height: 38, borderRadius: "50%", background: c, color: "#fff", fontWeight: 800, fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.3s", flexShrink: 0 }}>RE</div>
-            <div>
-              <div style={{ fontWeight: 700, fontSize: 15, lineHeight: 1.1 }}>Pr. Rkia EDDABRA</div>
-              <div style={{ fontSize: 11, color: "#9ca3af" }}>Microbiologie · ISPITS Agadir · Licence</div>
+        <div className="mx-auto flex max-w-[1080px] max-w-full flex-col items-start gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-6 md:py-0 md:h-[62px]">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div style={{ background: c, fontWeight: 800, fontSize: 13 }} className="flex h-[38px] w-[38px] flex-shrink-0 items-center justify-center rounded-full text-white transition-colors">RE</div>
+            <div className="min-w-0">
+              <div style={{ fontWeight: 700 }} className="text-[15px] leading-tight truncate">Pr. Rkia EDDABRA</div>
+              <div style={{ fontSize: 11, color: "#9ca3af" }} className="truncate">Microbiologie · ISPITS Agadir · Licence</div>
             </div>
           </div>
-          <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+          <div className="flex w-full max-w-full flex-wrap items-center gap-2 md:w-auto md:flex-nowrap">
             {CONFIG.options.map(opt => (
               <button key={opt.id} onClick={() => switchOpt(opt.id)} style={{
-                padding: "7px 16px", borderRadius: 999, fontSize: 13, fontWeight: 700, cursor: "pointer",
+                borderRadius: 999, fontWeight: 700, cursor: "pointer",
                 border: `2px solid ${opt.color}`,
                 background: activeOpt === opt.id ? opt.color : "transparent",
                 color:      activeOpt === opt.id ? "#fff"    : opt.color,
                 transition: "all 0.2s",
-              }}>{opt.label}</button>
+              }} className="px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-sm">{opt.label}</button>
             ))}
             <button onClick={() => navigate("/laboratoire")} style={{
-              padding: "7px 16px", borderRadius: 999, fontSize: 13, fontWeight: 700, cursor: "pointer",
+              borderRadius: 999, fontWeight: 700, cursor: "pointer",
               border: "2px solid #1d4ed8", background: "transparent", color: "#1d4ed8",
               transition: "all 0.2s",
-            }}>Laboratoire</button>
+            }} className="px-3 py-1.5 text-xs md:px-4 md:py-2 md:text-sm">Laboratoire</button>
           </div>
         </div>
       </header>
