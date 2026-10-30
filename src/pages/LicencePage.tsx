@@ -216,7 +216,7 @@ export default function LicencePage() {
     <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", minHeight: "100vh", background: "#f4f5f7" }}>
 
       <header style={{ background: "#fff", borderBottom: "1px solid #e5e7eb", position: "sticky", top: 0, zIndex: 100, boxShadow: "0 1px 6px rgba(0,0,0,0.06)" }}>
-        <div className="mx-auto flex max-w-[1080px] max-w-full flex-col items-start gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-6 md:py-0 md:h-[62px]">
+        <div className="mx-auto flex max-w-[1080px] flex-col items-start gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-6 md:h-[62px] md:py-0">
           <div className="flex items-center gap-2.5 min-w-0">
             <div style={{ background: c, fontWeight: 800, fontSize: 13 }} className="flex h-[38px] w-[38px] flex-shrink-0 items-center justify-center rounded-full text-white transition-colors">RE</div>
             <div className="min-w-0">
