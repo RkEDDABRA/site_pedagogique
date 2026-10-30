@@ -11,7 +11,7 @@ interface AssetPointer {
   original_filename?: string;
 }
 
-const dims = rawDims as Record<string, [number, number]>;
+const dims = rawDims as unknown as Record<string, [number, number]>;
 
 const byUrl = new Map<string, [number, number]>();
 
