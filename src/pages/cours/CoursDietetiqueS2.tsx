@@ -287,7 +287,6 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
             }}
             placeholder="Code d'accès"
             className="rounded-lg border border-input bg-background px-4 py-2.5 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            autoFocus
             disabled={loading}
           />
           {err && <p className="text-center text-xs text-destructive">Code incorrect.</p>}

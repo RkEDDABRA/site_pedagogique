@@ -72,7 +72,6 @@ export default function PasswordGate({ children }: PasswordGateProps) {
             }}
             placeholder="Mot de passe"
             className="rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-shadow"
-            autoFocus
             disabled={loading}
           />
           {error && (
