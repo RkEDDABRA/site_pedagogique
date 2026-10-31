@@ -129,7 +129,7 @@ export default function LaboratoirePage() {
           </div>
           <div style={{ display: "flex", gap: 8 }}>
             {OPTION.semestres.map(sem => (
-              <button key={sem.id} onClick={() => setActiveSem(sem.id)} style={{
+              <button key={sem.id} onClick={() => { setActiveSem(sem.id); window.scrollTo({ top: 0, left: 0 }); }} style={{
                 padding: "10px 22px", borderRadius: 12, fontSize: 14, fontWeight: 700, cursor: "pointer",
                 border: "2px solid rgba(255,255,255,0.5)",
                 background: activeSem === sem.id ? "rgba(255,255,255,0.22)" : "transparent",

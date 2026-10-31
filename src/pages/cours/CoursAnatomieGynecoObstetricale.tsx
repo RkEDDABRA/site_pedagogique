@@ -1260,7 +1260,6 @@ function PasswordScreen({
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Mot de passe du cours"
-            autoFocus
             className="rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring transition-shadow"
           />
           {error && (
