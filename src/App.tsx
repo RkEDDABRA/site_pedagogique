@@ -47,6 +47,7 @@ const CoursBiologieCellulaireLabo = lazyWithRetry(
 );
 const CoursGenetique = lazyWithRetry(() => import("./pages/cours/CoursGenetique.tsx"));
 import CourseGate from "@/components/CourseGate";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -62,6 +63,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route element={<Index />}>

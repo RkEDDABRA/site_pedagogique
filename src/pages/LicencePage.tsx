@@ -209,8 +209,9 @@ export default function LicencePage() {
     setActiveSem(opt.semestres[0]?.id ?? "s1");
     setActiveTab("cours");
     setOpenExo(null);
+    window.scrollTo({ top: 0, left: 0 });
   };
-  const switchSem = (id: string) => { setActiveSem(id); setActiveTab("cours"); setOpenExo(null); };
+  const switchSem = (id: string) => { setActiveSem(id); setActiveTab("cours"); setOpenExo(null); window.scrollTo({ top: 0, left: 0 }); };
 
   return (
     <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", minHeight: "100vh", background: "#f4f5f7" }}>
