@@ -68,7 +68,6 @@ export default function CourseGate({ courseId, children, accent }: CourseGatePro
               setError(false);
             }}
             placeholder="Code d'accès"
-            autoFocus
             disabled={loading}
             className="rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-ring"
           />
