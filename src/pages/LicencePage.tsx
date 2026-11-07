@@ -10,6 +10,7 @@ import type { CourseId } from "@/lib/courseAccess";
 
 import CoursSageFemmeS1 from "./cours/CoursSageFemmeS1";
 import CoursAnatomieGynecoObstetricale from "./cours/CoursAnatomieGynecoObstetricale";
+import CoursAnatomiePhysioDnS1 from "./cours/CoursAnatomiePhysioDnS1";
 import CoursDietetiqueS2 from "./cours/CoursDietetiqueS2";
 
 
@@ -92,7 +93,7 @@ const CONFIG = {
           id: "s1",
           label: "Semestre 1",
           module: "Anatomie et Physiologie Humaine",
-          CoursComponent: null as React.ComponentType | null,
+          CoursComponent: (() => <CoursAnatomiePhysioDnS1 embedded />) as React.ComponentType | null,
           courseId: "dn-s1" as CourseId,
           exercices: [
             { titre: "Série 1 – Le système digestif", niveau: "Niveau 1", enonce: "Décrivez les différents segments du tube digestif en précisant pour chacun la structure anatomique, les sécrétions et le rôle dans la digestion des macronutriments." },

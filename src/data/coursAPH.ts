@@ -22,4 +22,4 @@ export const APH_CHAPTERS: AphChapter[] = [
   { num: 8, title: "Sang et système lymphatique", disponible: false },
 ];
 
-export const chapterPath = (num: number) => `${APH_COURSE_PATH}/chapitre-${num}`;
+export const chapterPath = (num: number) => `${APH_COURSE_PATH}/chapitre/${num}`;

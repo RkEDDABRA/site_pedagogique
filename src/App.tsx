@@ -47,6 +47,12 @@ const CoursBiologieCellulaireLabo = lazyWithRetry(
   () => import("./pages/cours/CoursBiologieCellulaireLabo.tsx"),
 );
 const CoursGenetique = lazyWithRetry(() => import("./pages/cours/CoursGenetique.tsx"));
+const CoursAnatomiePhysioDnS1 = lazyWithRetry(
+  () => import("./pages/cours/CoursAnatomiePhysioDnS1.tsx"),
+);
+const CoursAPHChapterPage = lazyWithRetry(
+  () => import("./pages/cours/CoursAPHChapterPage.tsx"),
+);
 import CourseGate from "@/components/CourseGate";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -73,6 +79,22 @@ const App = () => (
               <Route path="/licence" element={<LicencePage />} />
               <Route path="/licence/sage-femme" element={<LicencePage />} />
               <Route path="/licence/dietetique" element={<LicencePage />} />
+              <Route
+                path="/licence/dietetique/s1/anatomie-physiologie"
+                element={
+                  <CourseGate courseId="dn-s1" accent="#1a7a4a">
+                    <CoursAnatomiePhysioDnS1 />
+                  </CourseGate>
+                }
+              />
+              <Route
+                path="/licence/dietetique/s1/anatomie-physiologie/chapitre/:num"
+                element={
+                  <CourseGate courseId="dn-s1" accent="#1a7a4a">
+                    <CoursAPHChapterPage />
+                  </CourseGate>
+                }
+              />
               <Route path="/master" element={<MasterPage />} />
               <Route path="/laboratoire" element={<LaboratoirePage />} />
               <Route
